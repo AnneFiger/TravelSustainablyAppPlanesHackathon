@@ -1,7 +1,128 @@
-body {
-    background-color: linear-gradient(180deg, rgba(40, 180, 133, 1.00) 0.0%, rgba(181, 235, 199, 1.00) 100.0%); 
+.Page {
+    
+    background: linear-gradient(180deg, #28B485 0%, #B5EBC7 100%);
 }
 
-.Page .background {
-    background-color: rgba(40, 180, 133, 1.00);
+header {
+    padding: 1px 0;
+    background: #FFFFFF;
+    box-shadow: 3px 2px 11px rgba(0, 0, 0, 0.091);
+}
+
+.container {
+    min-height: calc(100vh - 96.9px);
+}
+
+footer {
+    /* display: flex; */
+    position: relative;
+    left: 0;
+    bottom: 0;
+    max-height: 100px;
+    padding: 1px 0;
+    background: #FFFFFF;
+    box-shadow: 3px 2px 11px rgba(0, 0, 0, 0.091);
+    margin: none;
+}
+
+.container form {
+    max-width: 400px;
+    margin: 70px 150px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    gap: 4px;
+    background: #FFFFFF;
+    box-shadow: 3px 2px 11px rgba(0, 0, 0, 0.091);
+    border-radius: 10px;
+}
+
+.container form .inputs {
+    padding: 5px 0 25px 0;
+}
+
+.container label {
+    text-align: left;
+    display: block;
+    width: 366px;
+    height: 91px;
+}
+
+
+.container input,.container placeholder {
+    height: 50px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    background: #F9F9F9;
+    padding: 6px 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+}
+
+.container button {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 40px;
+    /* gap: 10px;  */
+    width: 366px;
+    height: 58px;
+    background: #28B485;
+    border-radius: 5px;
+    border: #28B485;
+    /* flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;*/
+    align-items: center;
+    justify-content: center;  
+}
+
+button #calculatetext {
+    position: absolute;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+h1{
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    font-weight: 800;
+    line-height: 50px;
+    letter-spacing: 0.10000000149011612px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.10000000149011612px;
+    text-align: center;
+}
+
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    color: #252B42;
+    margin: 10px 0;
+}
+
+p {
+    margin: 0%;
 }
