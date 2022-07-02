@@ -11,7 +11,7 @@ export const ExampleFetch = () => {
 
   const [emission, setEmission] = useState({});
  
-  // useEffect(() => {
+  useEffect(() => {
     const getEmission = async() => {
 
 
@@ -39,7 +39,7 @@ export const ExampleFetch = () => {
       
     }
     getEmission()
-  // }, []);
+  }, []);
 
 
 
