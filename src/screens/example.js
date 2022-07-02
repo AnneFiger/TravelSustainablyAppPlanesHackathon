@@ -9,7 +9,8 @@ import {Nav} from '../components/bottom-nav'
 
 export const ExampleFetch = () => {
 
-  const [emission, setEmission] = useState("");
+  const [emissionOne, setEmissionOne] = useState("");
+  const [emissionTwo, setEmissionTwo] = useState("");
  
   useEffect(() => {
     const getEmission = async() => {
@@ -31,6 +32,17 @@ export const ExampleFetch = () => {
               "money_unit": "gbp"
           }
       },
+
+      {
+        "custom_activity": {
+            "label": "Air_travel",
+        },
+        "parameters": {
+            "passengers": 1,
+            "distance": 500,
+            "distance_unit": "km"
+        }
+    }
       
      
       ];
@@ -39,8 +51,8 @@ export const ExampleFetch = () => {
         headers: headers1});
           const unknowndatainunknownformat = res.data;
           console.log(res);
-          setEmission(unknowndatainunknownformat.results[0].co2e)
-
+          setEmissionOne(unknowndatainunknownformat.results[0].co2e)
+          setEmissionTwo(unknowndatainunknownformat.results[1].co2e)
          
       
     }
@@ -60,7 +72,11 @@ return (
       <div>
          <h1>Number</h1>
               
-              {emission}
+             {/* {emissionOne}
+              <br/>
+              {emissionTwo}
+              <br/>}*/}
+              {emissionOne+emissionTwo}
           
           <Nav />
       </div>
