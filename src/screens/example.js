@@ -9,56 +9,55 @@ import {Nav} from '../components/bottom-nav'
 
 export const ExampleFetch = () => {
 
-  
-  useEffect(() => {
+  const [emission, setEmission] = useState({});
+ 
+  // useEffect(() => {
+    const getEmission = async() => {
+
+
+      const headers1 = {
+        'Authorization': 'Bearer W0CR772GJ2M5RHKW62SGS5YA51CB',
+        'Content-Type': 'application/json'
+      };
     
-      try {
-        const headers1 = {
-          'Authorization': 'Bearer XXXX',
-          'Content-Type': 'application/json'
-        };
-      
-        const data1 = [
-          {
-            "emission_factor": "passenger_vehicle-vehicle_type_car-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na",
-            "parameters":{
-                "distance": 100,
-                "distance_unit": "km"
-            }
-        },
-        {
-            "emission_factor": "consumer_goods-type_snack_foods",
-            "parameters": {
-                "money": 15,
-                "money_unit": "usd"
-            }
+      const data1 = {
+        "emission_factor": "fuel_type_asphalt_and_road_oil-fuel_use_stationary_combustion",
+        "parameters": {
+            "volume": 15,
+            "volume_unit": "l"
         }
-      ];
-      const res = await axios.post('https://beta3.api.climatiq.io/batch', data1, {
-      headers: headers1});
-        const unknowndatainunknownformat = res.data;
-        console.log(unknowndatainunknownformat);
-        return { unknowndatainunknownformat };
-      } catch (error) {
-        return { error };
-      }
-    
-    
-    
-    
+      };
+     
   
-  }, []);
+      const res = await axios.post('https://beta3.api.climatiq.io/estimate', data1, {
+        headers: headers1});
+          const unknowndatainunknownformat = res.data;
+          console.log(res);
+          // console.log(unknowndatainunknownformat);
+          setEmission(unknowndatainunknownformat)
+          // return { unknowndatainunknownformat };
+      
+    }
+    getEmission()
+  // }, []);
 
-  return (
-    <>
-        <Box>
-            <Text size="large" color="black">
-            Number
-            </Text>
-           <Text>{}</Text>
-        </Box>
-        <Nav />
-    </>
-  );
-}
 
+
+
+   
+
+     
+        
+      
+    
+return (
+      <div>
+         <h1>Number</h1>
+              
+              {emission.co2e}
+          
+          <Nav />
+      </div>
+    );
+    
+  }
