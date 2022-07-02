@@ -1,10 +1,5 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-    Box,
-    Text,
-  } from '@chakra-ui/react';
-import {Nav} from '../components/bottom-nav'
 
 
 export const ExampleFetch = () => {
@@ -54,9 +49,7 @@ return (
       <div>
          <h1>Number</h1>
               
-              {emission.co2e}
-          
-          <Nav />
+          {emission.co2e}
       </div>
     );
     
