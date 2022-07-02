@@ -10,19 +10,42 @@ header {
 }
 
 .container {
-    min-height: calc(100vh - 96.9px);
+    min-height: calc(100vh - 309.4px);
 }
 
 footer {
-    /* display: flex; */
+    display: flex;
     position: relative;
     left: 0;
     bottom: 0;
-    max-height: 100px;
-    padding: 1px 0;
+    padding: 20px 0;
     background: #FFFFFF;
     box-shadow: 3px 2px 11px rgba(0, 0, 0, 0.091);
     margin: none;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.Plane, .Train, .Car, .Boat {
+    border: 1px solid #28B485;
+    width: 170px;
+    height: 56px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 10px;
+    gap: 10px;
+}
+
+.Plane:hover, .Train:hover, .Car:hover, .Boat:hover {
+    border: 3px solid #28B485; 
 }
 
 .container form {
@@ -67,25 +90,29 @@ footer {
 }
 
 .container button {
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px 40px;
-    /* gap: 10px;  */
     width: 366px;
     height: 58px;
     background: #28B485;
     border-radius: 5px;
     border: #28B485;
-    /* flex: none;
-    order: 2;
-    align-self: stretch;
-    flex-grow: 0;*/
     align-items: center;
     justify-content: center;  
 }
 
-button #calculatetext {
+#hover:hover {
+    color: #28B485;
+}
+
+button:hover {
+    background: #FFFFFF;
+    border: 2px solid #28B485; 
+}
+
+.calculatetext {
     position: absolute;
     color: #FFFFFF;
     font-family: 'Montserrat';
