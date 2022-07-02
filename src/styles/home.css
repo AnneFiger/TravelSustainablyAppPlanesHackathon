@@ -1,0 +1,7 @@
+body {
+    background-color: linear-gradient(180deg, rgba(40, 180, 133, 1.00) 0.0%, rgba(181, 235, 199, 1.00) 100.0%); 
+}
+
+.Page .background {
+    background-color: rgba(40, 180, 133, 1.00);
+}
