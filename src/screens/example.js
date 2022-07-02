@@ -9,7 +9,7 @@ import {Nav} from '../components/bottom-nav'
 
 export const ExampleFetch = () => {
 
-  const [emission, setEmission] = useState({});
+  const [emission, setEmission] = useState("");
  
   useEffect(() => {
     const getEmission = async() => {
@@ -20,22 +20,28 @@ export const ExampleFetch = () => {
         'Content-Type': 'application/json'
       };
     
-      const data1 = {
-        "emission_factor": "fuel_type_asphalt_and_road_oil-fuel_use_stationary_combustion",
-        "parameters": {
-            "volume": 15,
-            "volume_unit": "l"
-        }
-      };
+      const data1 = [
+        {
+          "custom_activity": {
+              "label": "Accommodation",
+              "region": "GB"
+          },
+          "parameters": {
+              "money": 100,
+              "money_unit": "gbp"
+          }
+      },
+      
      
-  
-      const res = await axios.post('https://beta3.api.climatiq.io/estimate', data1, {
+      ];
+
+      const res = await axios.post('https://beta3.api.climatiq.io/custom-activities/batch', data1, {
         headers: headers1});
           const unknowndatainunknownformat = res.data;
           console.log(res);
-          // console.log(unknowndatainunknownformat);
-          setEmission(unknowndatainunknownformat)
-          // return { unknowndatainunknownformat };
+          setEmission(unknowndatainunknownformat.results[0].co2e)
+
+         
       
     }
     getEmission()
@@ -54,7 +60,7 @@ return (
       <div>
          <h1>Number</h1>
               
-              {emission.co2e}
+              {emission}
           
           <Nav />
       </div>
