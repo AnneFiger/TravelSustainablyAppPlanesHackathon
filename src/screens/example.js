@@ -1,44 +1,61 @@
 import { React, useState, useEffect } from 'react';
+import axios from 'axios';
 import {
     Box,
     Text,
   } from '@chakra-ui/react';
 import {Nav} from '../components/bottom-nav'
-export const ExampleFetch = () => {
-  const [airQualityData, setAirQualityData] = useState([]);
-  console.log(airQualityData)
 
+
+export const ExampleFetch = () => {
+
+  
   useEffect(() => {
-    async function getAirQuality() {
-      const res = await fetch(
-        'https://api.ambeedata.com/latest/by-lat-lng?lat=51.530112&lng=-0.0822173',
+    
+      try {
+        const headers1 = {
+          'Authorization': 'Bearer XXXX',
+          'Content-Type': 'application/json'
+        };
+      
+        const data1 = [
+          {
+            "emission_factor": "passenger_vehicle-vehicle_type_car-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na",
+            "parameters":{
+                "distance": 100,
+                "distance_unit": "km"
+            }
+        },
         {
-          method: 'GET',
-          headers: {
-            'x-api-key':
-              '98557c7e147dce2926573a404b7404eb6dccd673bc7044e4c0d13583b5bb6392',
-            'Content-type': 'application/json',
-          },
+            "emission_factor": "consumer_goods-type_snack_foods",
+            "parameters": {
+                "money": 15,
+                "money_unit": "usd"
+            }
         }
-      );
-      if (res.ok === true) {
-        const data = await res.json();
-        setAirQualityData(data.stations);
+      ];
+      const res = await axios.post('https://beta3.api.climatiq.io/batch', data1, {
+      headers: headers1});
+        const unknowndatainunknownformat = res.data;
+        console.log(unknowndatainunknownformat);
+        return { unknowndatainunknownformat };
+      } catch (error) {
+        return { error };
       }
-    }
-    getAirQuality();
+    
+    
+    
+    
+  
   }, []);
 
   return (
     <>
         <Box>
             <Text size="large" color="black">
-            Air Quality Data:
+            Number
             </Text>
-            {/* Show lat and long */}
-            {airQualityData.map(data => {
-            return <Text>{data.OZONE}</Text>;
-            })}
+           <Text>{}</Text>
         </Box>
         <Nav />
     </>
