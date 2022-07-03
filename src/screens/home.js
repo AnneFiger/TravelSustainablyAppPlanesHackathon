@@ -1,40 +1,64 @@
-import React, { onSubmit, useState } from 'react';
+import React, { onSubmit, useState, useEffect } from 'react';
 import '../styles/home.css';
 import train from '../assets/train.png';
 import car from '../assets/car.png';
 import boat from '../assets/boat.png';
 import plane from '../assets/plane.png';
+import { ExampleFetch } from './example';
 
 export const Home = () => {
 
 
+  const [kmInput, setKmInput] = useState("");
+  const [daysInput, setDaysInput] = useState("");
+  const [gbpInput, setGbpInput] = useState("");
+  
+
   const [mot, setMot] = useState("");
+
+  
   const [km, setKm] = useState("");
   const [days, setDays] = useState("");
   const [gbp, setGbp] = useState("");
   const [formInvalid, setFormInvalid] = useState(true);
 
   const handleChangeKm = (e) => {
-    setKm(e.target.value.trim());
+    setKmInput(e.target.value.trim());
+    
   };
 
   const handleChangeDays = (e) => {
-    setDays(e.target.value.trim());
+    setDaysInput(e.target.value.trim());
+    
   };
 
   const handleChangeGbp = (e) => {
-    setGbp(e.target.value.trim());
+    setGbpInput(e.target.value.trim());
+    
   };
 
   const submitForm = (e) => {
-    if (km && days && gbp){
-      // putInfoToDatabase();
+    e.preventDefault();
+  
+    if (kmInput && daysInput && gbpInput){
+      console.log("made it");
+      setDays(parseInt(daysInput));
+      setKm(parseInt(kmInput));
+      setGbp(parseInt(gbpInput));
+      // console.log(km);
+      // console.log(gbp);
+      // console.log(days);
       setFormInvalid(false);
+
+      // putInfoToDatabase();
  
     }else{
       return  
     }
   };
+
+
+ 
  
   return (
     <div className="Page">
@@ -44,11 +68,11 @@ export const Home = () => {
         </header>
         <h1>Calculate carbon footprint before your travel!</h1>
         <div className="container">
-          <form onSubmit={onSubmit}>
+          <form onSubmit={submitForm}>
             {/* ICONS */}
             <div className="icons">
               <div className="right">
-                <div className="Plane">
+                <div className="Plane" >
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
@@ -75,7 +99,7 @@ export const Home = () => {
               <label>
                 <h6>Distance</h6>
                 <input onChange={handleChangeKm}
-                  value={km}
+                  value={kmInput}
                   type="text"
                   name="distance"
                   placeholder="Distance in km"
@@ -83,20 +107,21 @@ export const Home = () => {
               </label>
               <label>
                 <h6>Length of stay</h6>
-                <input onChange={handleChangeDays}  value={days} name="length" placeholder="Number of days" />
+                <input onChange={handleChangeDays}  value={daysInput} type="text" name="length" placeholder="Number of days" />
               </label>
               <label>
                 <h6>Costs of accommodation</h6>
-                <input  onChange={handleChangeGbp}  value={gbp} name="costs" placeholder="Price" />
+                <input  onChange={handleChangeGbp}  value={gbpInput} type="text" name="costs" placeholder="Price" />
               </label>
             </div>
-            <button  onClick = {submitForm} type="submit" value="submit">
+            <button  type="submit" value="submit">
               <p id="hover" className="calculatetext">
                 Calculate
               </p>
             </button>
           </form>
         </div>
+        <ExampleFetch km={km} days={days} gbp={gbp} validity={formInvalid} />
         <footer>
         <p>hey</p>
 
