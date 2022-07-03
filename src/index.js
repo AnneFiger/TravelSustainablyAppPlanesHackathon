@@ -1,5 +1,5 @@
 
-import React, { StrictMode } from 'react';
+import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import {
   BrowserRouter,
