@@ -1,4 +1,4 @@
-import React, { onSubmit } from 'react';
+import React, { onSubmit, useState } from 'react';
 import '../styles/home.css';
 import train from '../assets/train.png';
 import car from '../assets/car.png';
@@ -6,6 +6,9 @@ import boat from '../assets/boat.png';
 import plane from '../assets/plane.png';
 
 export const Home = () => {
+
+  const [selectedTransport, setSeletectedTransport] = useState("");
+
   return (
     <div className="Page">
       <div className="main">
@@ -14,25 +17,26 @@ export const Home = () => {
         </header>
         <h1>Calculate carbon footprint before your travel!</h1>
         <div className="container">
+          <div className='blur'></div>
           <form onSubmit={onSubmit}>
             {/* ICONS */}
             <div className="icons">
               <div className="right">
-                <div className="Plane">
+                <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Plane")}>
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
-                <div className="Train">
+                <div id="train" className={`Train ${selectedTransport === 'Train' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Train")}>
                   <img className="vectorTrain" src={train} alt="train" />
                   <span className="btntext_1">Train</span>
                 </div>
               </div>
               <div className="left">
-                <div className="Car">
+                <div id="car" className={`Car ${selectedTransport === 'Car' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car")}>
                   <img className="vectorCar" src={car} alt="car" />
                   <span className="textCar">Car</span>
                 </div>
-                <div className="Boat">
+                <div id="boat" className={`Boat ${selectedTransport === 'Boat' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Boat")}>
                   <div className="icrounddirectionsboatfilled">
                     <img className="Vector_3" src={boat} alt="boat" />
                   </div>
@@ -67,8 +71,9 @@ export const Home = () => {
           </form>
         </div>
         <footer>
-        <p>hey</p>
-
+        <h4>OUR MISSION</h4>
+        <p className='missiontext'>We believe that small inputs make great changes. Using multipy data sources and combining it to show how really one person can contribute to better greener world.
+        </p>
         </footer>
       </div>
     </div>

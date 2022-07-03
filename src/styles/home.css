@@ -1,7 +1,16 @@
 .Page {
     
-    background: linear-gradient(180deg, #28B485 0%, #B5EBC7 100%);
-    /* backgroundImage: 'url(../assets/nature.jpg)'; */
+    /* background: linear-gradient(180deg, #28B485 0%, #B5EBC7 100%); */
+    background: url(../assets/nature.jpg);
+    position: relative;  
+}
+
+
+.main {
+    background: linear-gradient(180deg, rgba(40,180,133, 0.7) 0%,rgba(255, 255, 255,0.5) 100%);
+    /* background: rgba(255,255,255,0.5); */
+    width: 100%;
+    height: 100%;
 }
 
 header {
@@ -11,12 +20,13 @@ header {
 }
 
 .container {
-    min-height: calc(100vh - 309.4px);
+    min-height: calc(100vh - 381.02px);
 }
 
 footer {
-    display: flex;
+    
     position: relative;
+    justify-content: center;
     left: 0;
     bottom: 0;
     padding: 20px 0;
@@ -47,6 +57,10 @@ footer {
 
 .Plane:hover, .Train:hover, .Car:hover, .Boat:hover {
     border: 3px solid #28B485; 
+}
+
+.active {
+    border: 3px solid #28B485;  
 }
 
 .container form {
@@ -122,14 +136,23 @@ button:hover {
     font-size: 16px;
 }
 
+.missiontext {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #252B42;
+    font-weight: 100;
+}
+
 h1{
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
-    font-size: 35px;
+    font-size: 50px;
     font-weight: 800;
     line-height: 50px;
     letter-spacing: 0.10000000149011612px;
     text-align: center;
+    margin: 40px 0;
 }
 
 h2 {
@@ -138,6 +161,13 @@ h2 {
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0.10000000149011612px;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 20px;
+    letter-spacing: 2px;
     text-align: center;
 }
 
