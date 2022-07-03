@@ -1,16 +1,38 @@
 .Page {
-    
-    /* background: linear-gradient(180deg, #28B485 0%, #B5EBC7 100%); */
-    background: url(../assets/nature.jpg);
-    position: relative;  
+    overflow: auto;
+    position: relative;
+}
+
+.Page::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  
+    display: block;
+    background-image: url(../assets/nature.jpg);
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+  
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 
 .main {
-    background: linear-gradient(180deg, rgba(40,180,133, 0.7) 0%,rgba(255, 255, 255,0.5) 100%);
-    /* background: rgba(255,255,255,0.5); */
+    /* background: linear-gradient(180deg, rgba(40,180,133, 0.7) 0%,rgba(255, 255, 255,0.5) 100%); */
+    background: rgba(255,255,255,0.5);
     width: 100%;
     height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
 
 header {
@@ -147,7 +169,7 @@ button:hover {
 h1{
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 800;
     line-height: 50px;
     letter-spacing: 0.10000000149011612px;
@@ -161,7 +183,8 @@ h2 {
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0.10000000149011612px;
-    text-align: center;
+    text-align: left;
+    padding: 0 0 0 40px;
 }
 
 h4 {
