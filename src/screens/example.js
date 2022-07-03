@@ -42,7 +42,8 @@ return (
               <br/>
               {emissionTwo}
               <br/>}*/}
-              {emissionOne+emissionTwo}
+              {emissionOne+emissionTwo} 
+              <p>kg of CO2</p>
           
           
       </div>

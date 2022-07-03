@@ -71,16 +71,11 @@ export const Home = () => {
         <h1>Calculate carbon footprint before your travel!</h1>
         <div className="container">
           <div className='blur'></div>
-          <form onSubmit={onSubmit}>
-            {/* ICONS */}
-            <div className="icons">
-              <div className="right">
-                <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Plane")}>
           <form onSubmit={submitForm}>
             {/* ICONS */}
             <div className="icons">
               <div className="right">
-                <div className="Plane" >
+                <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Plane")}>
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
