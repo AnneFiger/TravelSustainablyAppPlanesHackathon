@@ -46,7 +46,7 @@ footer {
 
 }
 
-.Plane, .Train, .Car, .Boat {
+.Air_travel, .Train_travel, .Car_travel, .Boat {
     border: 1px solid #28B485;
     width: 170px;
     height: 56px;
@@ -59,7 +59,7 @@ footer {
     gap: 10px;
 }
 
-.Plane:hover, .Train:hover, .Car:hover, .Boat:hover {
+.Air_travel:hover, .Train_travel:hover, .Car_travel:hover, .Boat:hover {
     border: 3px solid #28B485; 
 }
 

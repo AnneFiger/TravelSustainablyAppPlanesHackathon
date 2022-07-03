@@ -72,17 +72,17 @@ export const Home = () => {
             {/* ICONS */}
             <div className="icons">
               <div className="right">
-                <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Air_travel")}>
+                <div id="plane" className={`Air_travel ${selectedTransport === 'Air_travel' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Air_travel")}>
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
-                <div id="train" className={`Train ${selectedTransport === 'Train' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Train_travel")}>
+                <div id="train" className={`Train_travel ${selectedTransport === 'Train_travel' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Train_travel")}>
                   <img className="vectorTrain" src={train} alt="train" />
                   <span className="btntext_1">Train</span>
                 </div>
               </div>
               <div className="left">
-                <div id="car" className={`Car ${selectedTransport === 'Car' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car_travel")}>
+                <div id="car" className={`Car_travel ${selectedTransport === 'Car_travel' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car_travel")}>
                   <img className="vectorCar" src={car} alt="car" />
                   <span className="textCar">Car</span>
                 </div>
