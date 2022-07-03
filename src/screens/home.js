@@ -18,21 +18,21 @@ export const Home = () => {
             {/* ICONS */}
             <div className="icons">
               <div className="right">
-                <div className="Plane">
+                <div id="plane" className="Plane">
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
-                <div className="Train">
+                <div id="train" className="Train">
                   <img className="vectorTrain" src={train} alt="train" />
                   <span className="btntext_1">Train</span>
                 </div>
               </div>
               <div className="left">
-                <div className="Car">
+                <div id="car" className="Car">
                   <img className="vectorCar" src={car} alt="car" />
                   <span className="textCar">Car</span>
                 </div>
-                <div className="Boat">
+                <div id="boat" className="Boat">
                   <div className="icrounddirectionsboatfilled">
                     <img className="Vector_3" src={boat} alt="boat" />
                   </div>
