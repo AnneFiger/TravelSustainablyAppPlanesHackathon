@@ -1,0 +1,33 @@
+.resultwindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    height: 400px;
+    
+}
+
+#resulttext {
+    font-size: 100px; 
+    font-weight: 500;
+    padding: 0 50px;
+}
+
+.resultnumber {
+    color: #FFFFFF;
+    font-size: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+
+.kgco2 {
+    color: #FFFFFF;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400; 
+}

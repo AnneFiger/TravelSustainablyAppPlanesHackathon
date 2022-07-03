@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { helper } from './calculator';
 import axios from 'axios';
+import '../styles/example.css'
 
 
 export const ExampleFetch = ({validity, mot, km, days, gbp}) => {
@@ -36,15 +37,15 @@ export const ExampleFetch = ({validity, mot, km, days, gbp}) => {
       
     
 return (
-      <div>
-         <h1>Number</h1>
+      <div className='resultwindow'>
+         <h1 id='resulttext'>Your result</h1>
               
              {/* {emissionOne}
               <br/>
               {emissionTwo}
-              <br/>}*/}
-              {emissionOne+emissionTwo} 
-              <p>kg of CO2</p>
+            <br/>}*/}
+            <div className='resultnumber'>{emissionOne+emissionTwo} </div>
+              <p className='kgco2'>in kg of CO2</p>
           
           
       </div>

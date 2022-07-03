@@ -120,8 +120,9 @@ export const Home = () => {
               </p>
             </button>
           </form>
+          <ExampleFetch km={km} days={days} gbp={gbp} mot={mot} validity={formInvalid} />
         </div>
-        <ExampleFetch km={km} days={days} gbp={gbp} mot={mot} validity={formInvalid} />
+
         <footer>
         <h4>OUR MISSION</h4>
         <p className='missiontext'>We believe that small inputs make great changes. Using multipy data sources and combining it to show how really one person can contribute to better greener world.
