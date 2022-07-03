@@ -12,6 +12,7 @@ export const Home = () => {
   const [km, setKm] = useState("");
   const [days, setDays] = useState("");
   const [gbp, setGbp] = useState("");
+  const [formInvalid, setFormInvalid] = useState(true);
 
   const handleChangeKm = (e) => {
     setKm(e.target.value.trim());
@@ -23,6 +24,16 @@ export const Home = () => {
 
   const handleChangeGbp = (e) => {
     setGbp(e.target.value.trim());
+  };
+
+  const submitForm = (e) => {
+    if (km && days && gbp){
+      // putInfoToDatabase();
+      setFormInvalid(false);
+ 
+    }else{
+      return  
+    }
   };
  
   return (
@@ -79,7 +90,7 @@ export const Home = () => {
                 <input  onChange={handleChangeGbp}  value={gbp} name="costs" placeholder="Price" />
               </label>
             </div>
-            <button type="submit" value="submit">
+            <button  onClick = {submitForm} type="submit" value="submit">
               <p id="hover" className="calculatetext">
                 Calculate
               </p>
