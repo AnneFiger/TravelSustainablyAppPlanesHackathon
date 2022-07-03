@@ -9,19 +9,15 @@ import { ExampleFetch } from './example';
 export const Home = () => {
 
   const [selectedTransport, setSeletectedTransport] = useState("");
-
-
   const [kmInput, setKmInput] = useState("");
   const [daysInput, setDaysInput] = useState("");
   const [gbpInput, setGbpInput] = useState("");
-  
 
   const [mot, setMot] = useState("");
-
-  
   const [km, setKm] = useState("");
   const [days, setDays] = useState("");
   const [gbp, setGbp] = useState("");
+
   const [formInvalid, setFormInvalid] = useState(true);
 
   const handleChangeKm = (e) => {
@@ -42,11 +38,12 @@ export const Home = () => {
   const submitForm = (e) => {
     e.preventDefault();
   
-    if (kmInput && daysInput && gbpInput){
+    if (kmInput && daysInput && gbpInput && selectedTransport){
       console.log("made it");
       setDays(parseInt(daysInput));
       setKm(parseInt(kmInput));
       setGbp(parseInt(gbpInput));
+      setMot(selectedTransport);
       // console.log(km);
       // console.log(gbp);
       // console.log(days);
@@ -75,21 +72,21 @@ export const Home = () => {
             {/* ICONS */}
             <div className="icons">
               <div className="right">
-                <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Plane")}>
+                <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Air_travel")}>
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
-                <div id="train" className={`Train ${selectedTransport === 'Train' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Train")}>
+                <div id="train" className={`Train ${selectedTransport === 'Train' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Train_travel")}>
                   <img className="vectorTrain" src={train} alt="train" />
                   <span className="btntext_1">Train</span>
                 </div>
               </div>
               <div className="left">
-                <div id="car" className={`Car ${selectedTransport === 'Car' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car")}>
+                <div id="car" className={`Car ${selectedTransport === 'Car' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car_travel")}>
                   <img className="vectorCar" src={car} alt="car" />
                   <span className="textCar">Car</span>
                 </div>
-                <div id="boat" className={`Boat ${selectedTransport === 'Boat' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Boat")}>
+                <div id="boat" className={`Boat ${selectedTransport === 'Boat' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car_travel")}>
                   <div className="icrounddirectionsboatfilled">
                     <img className="Vector_3" src={boat} alt="boat" />
                   </div>
@@ -124,7 +121,7 @@ export const Home = () => {
             </button>
           </form>
         </div>
-        <ExampleFetch km={km} days={days} gbp={gbp} validity={formInvalid} />
+        <ExampleFetch km={km} days={days} gbp={gbp} mot={mot} validity={formInvalid} />
         <footer>
         <h4>OUR MISSION</h4>
         <p className='missiontext'>We believe that small inputs make great changes. Using multipy data sources and combining it to show how really one person can contribute to better greener world.

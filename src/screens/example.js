@@ -3,19 +3,20 @@ import { helper } from './calculator';
 import axios from 'axios';
 
 
-export const ExampleFetch = ({validity, km, days, gbp}) => {
+export const ExampleFetch = ({validity, mot, km, days, gbp}) => {
 
   const [emissionOne, setEmissionOne] = useState("");
   const [emissionTwo, setEmissionTwo] = useState("");
  
   useEffect(() => {
     const getEmission = async() => {
-      if (km&&days&&gbp){
+      if (km&&days&&gbp&&mot){
         console.log(km);
       console.log(days);
-        console.log(gbp);  
+        console.log(gbp); 
+        console.log(mot) 
       
-      const result = await helper("Air_travel", km, days, gbp);
+      const result = await helper(mot, km, days, gbp);
       
     
       setEmissionOne(result.emissionOne);
@@ -23,7 +24,7 @@ export const ExampleFetch = ({validity, km, days, gbp}) => {
       }
     }
     getEmission()
-  }, [validity, km, days, gbp]);
+  }, [validity, mot, km, days, gbp]);
 
 
 
