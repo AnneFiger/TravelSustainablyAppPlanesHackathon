@@ -1,14 +1,67 @@
-import React, { onSubmit, useState } from 'react';
+import React, { onSubmit, useState, useEffect } from 'react';
 import '../styles/home.css';
 import train from '../assets/train.png';
 import car from '../assets/car.png';
 import boat from '../assets/boat.png';
 import plane from '../assets/plane.png';
+import { ExampleFetch } from './example';
 
 export const Home = () => {
 
   const [selectedTransport, setSeletectedTransport] = useState("");
 
+
+  const [kmInput, setKmInput] = useState("");
+  const [daysInput, setDaysInput] = useState("");
+  const [gbpInput, setGbpInput] = useState("");
+  
+
+  const [mot, setMot] = useState("");
+
+  
+  const [km, setKm] = useState("");
+  const [days, setDays] = useState("");
+  const [gbp, setGbp] = useState("");
+  const [formInvalid, setFormInvalid] = useState(true);
+
+  const handleChangeKm = (e) => {
+    setKmInput(e.target.value.trim());
+    
+  };
+
+  const handleChangeDays = (e) => {
+    setDaysInput(e.target.value.trim());
+    
+  };
+
+  const handleChangeGbp = (e) => {
+    setGbpInput(e.target.value.trim());
+    
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+  
+    if (kmInput && daysInput && gbpInput){
+      console.log("made it");
+      setDays(parseInt(daysInput));
+      setKm(parseInt(kmInput));
+      setGbp(parseInt(gbpInput));
+      // console.log(km);
+      // console.log(gbp);
+      // console.log(days);
+      setFormInvalid(false);
+
+      // putInfoToDatabase();
+ 
+    }else{
+      return  
+    }
+  };
+
+
+ 
+ 
   return (
     <div className="Page">
       <div className="main">
@@ -23,6 +76,11 @@ export const Home = () => {
             <div className="icons">
               <div className="right">
                 <div id="plane" className={`Plane ${selectedTransport === 'Plane' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Plane")}>
+          <form onSubmit={submitForm}>
+            {/* ICONS */}
+            <div className="icons">
+              <div className="right">
+                <div className="Plane" >
                   <img className="vectorPlane" src={plane} alt="plane" />
                   <span className="textPlane">Plane</span>
                 </div>
@@ -48,7 +106,8 @@ export const Home = () => {
             <div className="inputs">
               <label>
                 <h6>Distance</h6>
-                <input
+                <input onChange={handleChangeKm}
+                  value={kmInput}
                   type="text"
                   name="distance"
                   placeholder="Distance in km"
@@ -56,20 +115,21 @@ export const Home = () => {
               </label>
               <label>
                 <h6>Length of stay</h6>
-                <input name="length" placeholder="Number of days" />
+                <input onChange={handleChangeDays}  value={daysInput} type="text" name="length" placeholder="Number of days" />
               </label>
               <label>
                 <h6>Costs of accommodation</h6>
-                <input name="costs" placeholder="Price" />
+                <input  onChange={handleChangeGbp}  value={gbpInput} type="text" name="costs" placeholder="Price" />
               </label>
             </div>
-            <button type="submit" value="submit">
+            <button  type="submit" value="submit">
               <p id="hover" className="calculatetext">
                 Calculate
               </p>
             </button>
           </form>
         </div>
+        <ExampleFetch km={km} days={days} gbp={gbp} validity={formInvalid} />
         <footer>
         <h4>OUR MISSION</h4>
         <p className='missiontext'>We believe that small inputs make great changes. Using multipy data sources and combining it to show how really one person can contribute to better greener world.
