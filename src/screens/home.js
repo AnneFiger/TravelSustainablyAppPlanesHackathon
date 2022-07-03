@@ -67,13 +67,8 @@ export const Home = () => {
           </form>
         </div>
         <footer>
-          <div id="wcb" class="carbonbadge wcb-d">
-            <p>hey</p>
-          </div>
-          <script
-            src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
-            defer
-          ></script>
+        <p>hey</p>
+
         </footer>
       </div>
     </div>

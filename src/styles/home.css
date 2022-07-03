@@ -1,6 +1,7 @@
 .Page {
     
     background: linear-gradient(180deg, #28B485 0%, #B5EBC7 100%);
+    /* backgroundImage: 'url(../assets/nature.jpg)'; */
 }
 
 header {
