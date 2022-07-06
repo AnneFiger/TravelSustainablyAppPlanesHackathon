@@ -44,7 +44,7 @@ return (
               <br/>
               {emissionTwo}
             <br/>}*/}
-            <div className='resultnumber'>{emissionOne+emissionTwo} </div>
+            <div className='resultnumber'>{Math.floor(emissionOne+emissionTwo)} </div>
               <p className='kgco2'>in kg of CO2</p>
           
           

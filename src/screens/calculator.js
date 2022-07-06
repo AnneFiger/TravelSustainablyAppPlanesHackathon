@@ -7,7 +7,7 @@ export const helper = async(modeOfTransportation, distance, lengthOfStay, costOf
 
 
         const headers1 = {
-          'Authorization': 'Bearer W0CR772GJ2M5RHKW62SGS5YA51CB',
+          'Authorization': 'Bearer <ReplaceAPIkeyhere>',
           'Content-Type': 'application/json'
         };
       
