@@ -1,27 +1,57 @@
-.Page {
-    
-    /* background: linear-gradient(180deg, #28B485 0%, #B5EBC7 100%); */
-    background: url(../assets/nature.jpg);
-    position: relative;  
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html { 
+    background-size: cover;
+    width:100%;
+    height:100%;
+}
+
+html::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(115, 201, 173, 0.7) 0%, rgba(255, 255, 255, 0.5) 100%), url(../assets/nature.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    display: block;
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 
 .main {
-    background: linear-gradient(180deg, rgba(40,180,133, 0.7) 0%,rgba(255, 255, 255,0.5) 100%);
-    /* background: rgba(255,255,255,0.5); */
     width: 100%;
     height: 100%;
+    background-size: cover;
 }
 
 header {
-    padding: 1px 0;
     background: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
     box-shadow: 3px 2px 11px rgba(0, 0, 0, 0.091);
-}
+    /* align-items: center;
+    justify-content: center; */
+    padding: 15px;
+ }
 
 .container {
-    /* min-height: calc(100vh - 200); */
-    height: calc(100vh - 380px);
+    height: calc(100vh - 349px);
     display: flex;
     width:100%;
     align-items:center;
@@ -30,12 +60,11 @@ header {
 }
 
 footer {
-    
     position: relative;
     justify-content: center;
     left: 0;
     bottom: 0;
-    padding: 20px 0;
+    padding: 30px;
     background: #FFFFFF;
     box-shadow: 3px 2px 11px rgba(0, 0, 0, 0.091);
     margin: none;
@@ -191,3 +220,5 @@ h6 {
 p {
     margin: 0%;
 }
+
+

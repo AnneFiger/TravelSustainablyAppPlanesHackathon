@@ -1,4 +1,4 @@
-import React, { onSubmit, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/home.css';
 import train from '../assets/train.png';
 import car from '../assets/car.png';
@@ -7,39 +7,35 @@ import plane from '../assets/plane.png';
 import { ExampleFetch } from './example';
 
 export const Home = () => {
+  const [selectedTransport, setSeletectedTransport] = useState('');
+  const [kmInput, setKmInput] = useState('');
+  const [daysInput, setDaysInput] = useState('');
+  const [gbpInput, setGbpInput] = useState('');
 
-  const [selectedTransport, setSeletectedTransport] = useState("");
-  const [kmInput, setKmInput] = useState("");
-  const [daysInput, setDaysInput] = useState("");
-  const [gbpInput, setGbpInput] = useState("");
-
-  const [mot, setMot] = useState("");
-  const [km, setKm] = useState("");
-  const [days, setDays] = useState("");
-  const [gbp, setGbp] = useState("");
+  const [mot, setMot] = useState('');
+  const [km, setKm] = useState('');
+  const [days, setDays] = useState('');
+  const [gbp, setGbp] = useState('');
 
   const [formInvalid, setFormInvalid] = useState(true);
 
-  const handleChangeKm = (e) => {
+  const handleChangeKm = e => {
     setKmInput(e.target.value.trim());
-    
   };
 
-  const handleChangeDays = (e) => {
+  const handleChangeDays = e => {
     setDaysInput(e.target.value.trim());
-    
   };
 
-  const handleChangeGbp = (e) => {
+  const handleChangeGbp = e => {
     setGbpInput(e.target.value.trim());
-    
   };
 
-  const submitForm = (e) => {
+  const submitForm = e => {
     e.preventDefault();
-  
-    if (kmInput && daysInput && gbpInput && selectedTransport){
-      console.log("made it");
+
+    if (kmInput && daysInput && gbpInput && selectedTransport) {
+      console.log('made it');
       setDays(parseInt(daysInput));
       setKm(parseInt(kmInput));
       setGbp(parseInt(gbpInput));
@@ -50,85 +46,127 @@ export const Home = () => {
       setFormInvalid(false);
 
       // putInfoToDatabase();
- 
-    }else{
-      return  
+    } else {
+      return;
     }
   };
 
-
- 
- 
   return (
-    <div className="Page">
-      <div className="main">
-        <header>
-          <h2>Green travel</h2>
-        </header>
-        <h1>Calculate carbon footprint before your travel!</h1>
-        <div className="container">
-          <div className='blur'></div>
-          <form onSubmit={submitForm}>
-            {/* ICONS */}
-            <div className="icons">
-              <div className="right">
-                <div id="plane" className={`Air_travel ${selectedTransport === 'Air_travel' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Air_travel")}>
-                  <img className="vectorPlane" src={plane} alt="plane" />
-                  <span className="textPlane">Plane</span>
-                </div>
-                <div id="train" className={`Train_travel ${selectedTransport === 'Train_travel' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Train_travel")}>
-                  <img className="vectorTrain" src={train} alt="train" />
-                  <span className="btntext_1">Train</span>
-                </div>
+    <div className="main">
+      <header>
+        <h2>Green travel</h2>
+      </header>
+      <h1>Calculate carbon footprint before your travel!</h1>
+      <div className="container">
+        <form onSubmit={submitForm}>
+          {/* ICONS */}
+          <div className="icons">
+            <div className="right">
+              <div
+                id="plane"
+                className={`Air_travel ${
+                  selectedTransport === 'Air_travel' ? 'active' : ''
+                }`}
+                onClick={() => setSeletectedTransport('Air_travel')}
+              >
+                <img className="vectorPlane" src={plane} alt="plane" />
+                <span className="textPlane">Plane</span>
               </div>
-              <div className="left">
-                <div id="car" className={`Car_travel ${selectedTransport === 'Car_travel' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car_travel")}>
-                  <img className="vectorCar" src={car} alt="car" />
-                  <span className="textCar">Car</span>
-                </div>
-                <div id="boat" className={`Boat ${selectedTransport === 'Boat' ? "active" : ""}`} onClick={()=> setSeletectedTransport("Car_travel")}>
-                  <div className="icrounddirectionsboatfilled">
-                    <img className="Vector_3" src={boat} alt="boat" />
-                  </div>
-                  <span className="textBoat">Boat</span>
-                </div>
+              <div
+                id="train"
+                className={`Train_travel ${
+                  selectedTransport === 'Train_travel' ? 'active' : ''
+                }`}
+                onClick={() => setSeletectedTransport('Train_travel')}
+              >
+                <img className="vectorTrain" src={train} alt="train" />
+                <span className="btntext_1">Train</span>
               </div>
             </div>
-            {/* ICONS END */}
-            <div className="inputs">
-              <label>
-                <h6>Distance</h6>
-                <input onChange={handleChangeKm}
-                  value={kmInput}
-                  type="text"
-                  name="distance"
-                  placeholder="Distance in km"
-                />
-              </label>
-              <label>
-                <h6>Length of stay</h6>
-                <input onChange={handleChangeDays}  value={daysInput} type="text" name="length" placeholder="Number of days" />
-              </label>
-              <label>
-                <h6>Costs of accommodation</h6>
-                <input  onChange={handleChangeGbp}  value={gbpInput} type="text" name="costs" placeholder="Price" />
-              </label>
+            <div className="left">
+              <div
+                id="car"
+                className={`Car_travel ${
+                  selectedTransport === 'Car_travel' ? 'active' : ''
+                }`}
+                onClick={() => setSeletectedTransport('Car_travel')}
+              >
+                <img className="vectorCar" src={car} alt="car" />
+                <span className="textCar">Car</span>
+              </div>
+              <div
+                id="boat"
+                className={`Boat ${
+                  selectedTransport === 'Boat' ? 'active' : ''
+                }`}
+                onClick={() => setSeletectedTransport('Car_travel')}
+              >
+                <div className="icrounddirectionsboatfilled">
+                  <img className="Vector_3" src={boat} alt="boat" />
+                </div>
+                <span className="textBoat">Boat</span>
+              </div>
             </div>
-            <button  type="submit" value="submit">
-              <p id="hover" className="calculatetext">
-                Calculate
-              </p>
-            </button>
-          </form>
-          <ExampleFetch km={km} days={days} gbp={gbp} mot={mot} validity={formInvalid} />
-        </div>
+          </div>
+          {/* ICONS END */}
+          <div className="inputs">
+            <label>
+              <h6>Distance</h6>
+              <input
+                onChange={handleChangeKm}
+                value={kmInput}
+                type="text"
+                name="distance"
+                placeholder="Distance in km"
+              />
+            </label>
+            <label>
+              <h6>Length of stay</h6>
+              <input
+                onChange={handleChangeDays}
+                value={daysInput}
+                type="text"
+                name="length"
+                placeholder="Number of days"
+              />
+            </label>
+            <label>
+              <h6>Costs of accommodation</h6>
+              <input
+                onChange={handleChangeGbp}
+                value={gbpInput}
+                type="text"
+                name="costs"
+                placeholder="Price"
+              />
+            </label>
+          </div>
+          <button type="submit" value="submit">
+            <p id="hover" className="calculatetext">
+              Calculate
+            </p>
+          </button>
+        </form>
+        <ExampleFetch
+          km={km}
+          days={days}
+          gbp={gbp}
+          mot={mot}
+          validity={formInvalid}
+        />
 
-        <footer>
-        <h4>OUR MISSION</h4>
-        <p className='missiontext'>We believe that small inputs make great changes. Using multipy data sources and combining it to show how really one person can contribute to better greener world.
-        </p>
-        </footer>
+      
+        
       </div>
+
+      <footer>
+        <h4>OUR MISSION</h4>
+        <p className="missiontext">
+          We believe that small inputs make great changes. Using multipy data
+          sources and combining it to show how really one person can contribute
+          to better greener world.
+        </p>
+      </footer>
     </div>
   );
 };
